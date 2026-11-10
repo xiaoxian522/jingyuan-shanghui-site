@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一宅一馆 · 筑见中西 —— 静园与广州湾商会会址建筑差异科普</title>
+<style>
+  :root{
+    --paper:#F7F3EA; --paper-2:#F1EBDD; --ink:#23201A; --ink-2:#5B5548;
+    --brick:#A0402C; --jade:#2F5D50; --brass:#A5814B; --line:#D8CFBC;
+    --serif:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;
+    --sans:"PingFang SC","Microsoft YaHei","Segoe UI",system-ui,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.75;font-size:16px}
+  ::selection{background:var(--brick);color:#fff}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+
+  /* ===== 导航 ===== */
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(247,243,234,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav-in{max-width:1200px;margin:0 auto;padding:0 20px;height:56px;display:flex;align-items:center;gap:22px}
+  .brand{font-family:var(--serif);font-weight:700;letter-spacing:2px;font-size:16px;white-space:nowrap}
+  .brand em{font-style:normal;color:var(--brick)}
+  .nav-links{display:flex;gap:14px;margin-left:auto;font-size:13px;color:var(--ink-2);overflow-x:auto}
+  .nav-links a{text-decoration:none;padding:4px 2px;border-bottom:2px solid transparent;transition:.25s;white-space:nowrap}
+  .nav-links a:hover,.nav-links a.act{color:var(--brick);border-bottom-color:var(--brick)}
+  @media(max-width:860px){.nav-links{display:none}}
+
+  /* ===== Hero 分屏 ===== */
+  .hero{display:flex;height:100vh;min-height:560px;padding-top:56px}
+  .half{position:relative;flex:1;overflow:hidden;transition:flex .7s cubic-bezier(.6,0,.2,1)}
+  .half:hover{flex:1.55}
+  .half img{width:100%;height:100%;object-fit:cover;transform:scale(1.04);transition:transform .7s}
+  .half:hover img{transform:scale(1.1)}
+  .half .veil{position:absolute;inset:0;background:linear-gradient(to top,rgba(20,16,10,.78) 0%,rgba(20,16,10,.12) 55%,rgba(20,16,10,.25) 100%)}
+  .half .tag{position:absolute;left:32px;bottom:34px;color:#fff}
+  .half .tag small{display:block;font-size:12.5px;letter-spacing:4px;opacity:.75;margin-bottom:8px}
+  .half .tag h2{font-family:var(--serif);font-size:clamp(26px,3.4vw,40px);letter-spacing:6px;font-weight:700;color:#F4E9D0}
+  .half .tag p{font-size:13.5px;opacity:.85;margin-top:6px;max-width:34em}
+  .hero-mid{position:absolute;left:50%;top:calc(56px + 12vh);transform:translateX(-50%);z-index:5;text-align:center;color:var(--paper);pointer-events:none;width:min(760px,92vw)}
+  .hero-mid .kicker{font-size:13px;letter-spacing:8px;opacity:.85;text-shadow:0 1px 8px rgba(0,0,0,.6)}
+  .hero-mid h1{font-family:var(--serif);font-size:clamp(40px,6.4vw,78px);letter-spacing:14px;margin:14px 0 6px;text-shadow:0 2px 24px rgba(0,0,0,.55)}
+  .hero-mid .q{font-family:var(--serif);font-size:clamp(14px,1.6vw,18px);letter-spacing:2px;text-shadow:0 1px 10px rgba(0,0,0,.7);color:#F2EADA}
+  .hero-mid .rule{width:64px;height:2px;background:var(--brass);margin:20px auto 0}
+  .hero-scroll{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:6;color:#fff;font-size:12px;letter-spacing:3px;opacity:.8;animation:bob 2.2s ease-in-out infinite}
+  @keyframes bob{50%{transform:translate(-50%,8px)}}
+  @media(max-width:720px){.hero{flex-direction:column;height:auto;min-height:0}.half{min-height:46vh}.hero-mid{top:40vh}}
+
+  /* ===== 通用 section ===== */
+  section{max-width:1160px;margin:0 auto;padding:96px 24px 40px}
+  .sec-head{display:flex;align-items:baseline;gap:18px;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:40px;flex-wrap:wrap}
+  .sec-head .no{font-family:var(--serif);font-size:44px;color:var(--brass);font-weight:700;line-height:1}
+  .sec-head h2{font-family:var(--serif);font-size:clamp(24px,3vw,34px);letter-spacing:3px}
+  .sec-head .sub{margin-left:auto;font-size:13px;color:var(--ink-2);letter-spacing:2px}
+  .lead{max-width:52em;color:var(--ink-2);margin-bottom:34px}
+  .lead b{color:var(--brick)}
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ===== 壹 控制变量 ===== */
+  .vs-grid{display:grid;grid-template-columns:1fr 74px 1fr;gap:0;align-items:stretch;margin-bottom:44px}
+  @media(max-width:860px){.vs-grid{grid-template-columns:1fr}.vs-badge{margin:18px auto!important}}
+  .dossier{background:#fff;border:1px solid var(--line);padding:26px 26px 22px}
+  .dossier h3{font-family:var(--serif);font-size:22px;letter-spacing:2px;margin-bottom:2px}
+  .dossier .en{font-size:12px;letter-spacing:2px;color:var(--ink-2)}
+  .dossier figure{margin:16px 0;overflow:hidden;border:1px solid var(--line)}
+  .dossier img{width:100%;height:230px;object-fit:cover;transition:transform .6s}
+  .dossier:hover img{transform:scale(1.05)}
+  .dossier dl{display:grid;grid-template-columns:5.2em 1fr;font-size:14px;gap:6px 10px}
+  .dossier dt{color:var(--ink-2)}
+  .dossier.guild h3::before{content:"馆";background:var(--jade);color:#fff;font-size:13px;padding:2px 7px;border-radius:3px;margin-right:10px;vertical-align:3px}
+  .dossier.home h3::before{content:"宅";background:var(--brick);color:#fff;font-size:13px;padding:2px 7px;border-radius:3px;margin-right:10px;vertical-align:3px}
+  .vs-badge{align-self:center;justify-self:center;width:64px;height:64px;border-radius:50%;background:var(--ink);color:var(--paper);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:20px;letter-spacing:2px}
+  .var-note{background:var(--paper-2);border-left:4px solid var(--brass);padding:20px 24px;font-size:15px;margin-bottom:52px}
+  .var-note b{color:var(--brick)}
+  .timeline{position:relative;margin:10px 0 20px;padding-left:26px}
+  .timeline::before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line)}
+  .t-item{position:relative;margin-bottom:30px}
+  .t-item::before{content:"";position:absolute;left:-25px;top:9px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:3px solid var(--brick)}
+  .t-item .year{font-family:var(--serif);font-size:24px;color:var(--brick);font-weight:700;letter-spacing:2px}
+  .t-item .what{font-weight:600;margin:2px 0}
+  .t-item p{font-size:14.5px;color:var(--ink-2);max-width:60em}
+
+  /* ===== 贰 气候语法 ===== */
+  .four-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:40px}
+  @media(max-width:960px){.four-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.four-grid{grid-template-columns:1fr}}
+  .f-card{background:#fff;border:1px solid var(--line);border-top:4px solid var(--brass);padding:22px 20px;transition:transform .3s,box-shadow .3s}
+  .f-card:hover{transform:translateY(-5px);box-shadow:0 14px 30px rgba(60,45,20,.12)}
+  .f-card .idx{font-family:var(--serif);font-size:13px;color:var(--brass);letter-spacing:2px}
+  .f-card h4{font-family:var(--serif);font-size:19px;margin:6px 0 8px;letter-spacing:1px}
+  .f-card p{font-size:13.8px;color:var(--ink-2)}
+  .story{display:grid;grid-template-columns:300px 1fr;gap:28px;background:#fff;border:1px solid var(--line);padding:26px;align-items:center}
+  @media(max-width:760px){.story{grid-template-columns:1fr}}
+  .story img{width:100%;height:220px;object-fit:cover;border:1px solid var(--line)}
+  .story h4{font-family:var(--serif);font-size:20px;margin-bottom:10px}
+  .story p{font-size:14.5px;color:var(--ink-2)}
+  .story .cap{font-size:12.5px;color:var(--ink-2);margin-top:8px;opacity:.8}
+
+  /* ===== 叁 六维度对照台 ===== */
+  .dim-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+  .dim-tabs button{font-family:var(--serif);font-size:15.5px;letter-spacing:2px;padding:9px 22px;background:transparent;border:1px solid var(--line);cursor:pointer;color:var(--ink-2);transition:.25s}
+  .dim-tabs button:hover{border-color:var(--brick);color:var(--brick)}
+  .dim-tabs button.act{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .dim-stage{display:grid;grid-template-columns:1fr 44px 1fr;gap:0;background:#fff;border:1px solid var(--line);overflow:hidden}
+  @media(max-width:860px){.dim-stage{grid-template-columns:1fr}.dim-arrow{display:none}}
+  .dim-col{padding:22px 22px 26px}
+  .dim-col.g{border-top:5px solid var(--jade)}
+  .dim-col.h{border-top:5px solid var(--brick)}
+  .dim-col .who{font-family:var(--serif);font-size:16px;letter-spacing:2px;margin-bottom:12px}
+  .dim-col.g .who{color:var(--jade)}
+  .dim-col.h .who{color:var(--brick)}
+  .dim-imgs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+  .dim-imgs figure{overflow:hidden;border:1px solid var(--line);margin:0;cursor:zoom-in}
+  .dim-imgs img{width:100%;height:170px;object-fit:cover;transition:transform .6s}
+  .dim-imgs figure:hover img{transform:scale(1.06)}
+  .dim-imgs figcaption{font-size:12px;color:var(--ink-2);padding:6px 4px;background:#fff;text-align:center;line-height:1.5}
+  .dim-col p{font-size:14.6px}
+  .dim-arrow{align-self:center;justify-self:center;font-size:20px;color:var(--brass)}
+  .dim-insight{margin-top:22px;background:var(--paper-2);border-left:4px solid var(--brick);padding:16px 22px;font-size:15px}
+  .dim-insight b{color:var(--brick)}
+  .fade{animation:fade .45s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+  /* ===== 肆 四维对照表 ===== */
+  .cmp-item{background:#fff;border:1px solid var(--line);margin-bottom:30px;overflow:hidden}
+  .cmp-head{display:flex;align-items:center;gap:14px;padding:16px 24px;background:var(--paper-2);border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .cmp-head .tag4{font-family:var(--serif);font-size:13px;color:#fff;background:var(--brass);padding:3px 12px;letter-spacing:2px}
+  .cmp-head h4{font-family:var(--serif);font-size:20px;letter-spacing:2px}
+  .cmp-head .law-chip{margin-left:auto;font-size:13px;color:var(--brick);border:1px dashed var(--brick);padding:4px 12px;border-radius:20px}
+  .cmp-body{display:grid;grid-template-columns:1fr 1fr}
+  @media(max-width:760px){.cmp-body{grid-template-columns:1fr}}
+  .cmp-col{padding:20px 22px 24px}
+  .cmp-col.g{border-right:1px solid var(--line)}
+  @media(max-width:760px){.cmp-col.g{border-right:none;border-bottom:1px solid var(--line)}}
+  .cmp-col .who{font-family:var(--serif);font-size:15px;letter-spacing:2px;margin-bottom:12px}
+  .cmp-col.g .who{color:var(--jade)}
+  .cmp-col.h .who{color:var(--brick)}
+  .cmp-thumbs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+  .cmp-thumbs figure{overflow:hidden;border:1px solid var(--line);cursor:zoom-in}
+  .cmp-thumbs img{width:100%;height:150px;object-fit:cover;transition:transform .5s}
+  .cmp-thumbs figure:hover img{transform:scale(1.07)}
+  .cmp-thumbs figcaption{font-size:11.5px;color:var(--ink-2);padding:5px 4px;text-align:center;background:#fff}
+  .cmp-col p{font-size:14.2px;color:var(--ink)}
+  .cmp-law{padding:14px 24px;border-top:1px dashed var(--line);background:var(--paper);font-size:14.5px}
+  .cmp-law b{color:var(--brick)}
+
+  /* ===== 伍 构件拆解（热点） ===== */
+  .ana-tabs{display:flex;gap:10px;margin-bottom:22px}
+  .ana-tabs button{font-family:var(--serif);font-size:15px;letter-spacing:2px;padding:9px 22px;background:transparent;border:1px solid var(--line);cursor:pointer;color:var(--ink-2);transition:.25s}
+  .ana-tabs button.act{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .ana-wrap{display:grid;grid-template-columns:1.25fr 1fr;gap:26px;align-items:start}
+  @media(max-width:860px){.ana-wrap{grid-template-columns:1fr}}
+  .hs-stage{position:relative;background:#fff;border:1px solid var(--line);padding:10px}
+  .hs-stage img{width:100%;height:auto}
+  .hotspot{position:absolute;width:26px;height:26px;transform:translate(-50%,-50%);border-radius:50%;background:rgba(165,129,75,.9);border:2px solid #fff;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.35);transition:.25s;padding:0}
+  .hotspot::after{content:"";position:absolute;inset:-7px;border-radius:50%;border:2px solid rgba(165,129,75,.5);animation:ping 1.8s ease-out infinite}
+  @keyframes ping{0%{transform:scale(.6);opacity:1}100%{transform:scale(1.35);opacity:0}}
+  .hotspot:hover,.hotspot.act{background:var(--brick);transform:translate(-50%,-50%) scale(1.18)}
+  .hotspot .hl{position:absolute;left:32px;top:2px;background:rgba(35,32,26,.85);color:#fff;font-size:12px;padding:2px 10px;border-radius:3px;white-space:nowrap;opacity:0;transition:.25s;pointer-events:none}
+  .hotspot:hover .hl{opacity:1}
+  .hs-info{background:#fff;border:1px solid var(--line);padding:24px;min-height:280px}
+  .hs-info h4{font-family:var(--serif);font-size:21px;letter-spacing:2px;color:var(--brick);margin-bottom:4px}
+  .hs-info .hs-sub{font-size:12.5px;color:var(--brass);letter-spacing:2px;margin-bottom:14px}
+  .hs-info p{font-size:14.6px;color:var(--ink-2);margin-bottom:14px}
+  .hs-info .hs-meta{background:var(--paper-2);padding:12px 16px;font-size:13.5px;border-left:3px solid var(--brass)}
+  .hs-hint{font-size:12.5px;color:var(--ink-2);margin-top:14px;text-align:center;letter-spacing:1px}
+
+  /* ===== 陆 气候模拟 ===== */
+  .clim-tabs{display:flex;gap:10px;margin-bottom:22px;flex-wrap:wrap}
+  .clim-tabs button{font-family:var(--serif);font-size:15px;letter-spacing:2px;padding:9px 22px;background:transparent;border:1px solid var(--line);cursor:pointer;color:var(--ink-2);transition:.25s}
+  .clim-tabs button.act{background:var(--jade);color:#fff;border-color:var(--jade)}
+  .clim-wrap{display:grid;grid-template-columns:1.3fr 1fr;gap:26px;align-items:center}
+  @media(max-width:860px){.clim-wrap{grid-template-columns:1fr}}
+  .clim-svg{background:#fff;border:1px solid var(--line);padding:10px}
+  .clim-svg svg{width:100%;height:auto;display:block}
+  .clim-out h3{font-family:var(--serif);font-size:22px;letter-spacing:2px;margin-bottom:10px;color:var(--jade)}
+  .clim-out p{font-size:14.8px;color:var(--ink-2);margin-bottom:12px}
+  .clim-out .duel{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+  .clim-out .duel div{background:var(--paper-2);padding:12px 14px;font-size:13.5px;border-top:3px solid var(--jade)}
+  .clim-out .duel div:last-child{border-top-color:var(--brick)}
+  .rain line{animation:rainfall .75s linear infinite}
+  @keyframes rainfall{from{transform:translateY(-46px)}to{transform:translateY(24px)}}
+  .fogball{animation:drift 6s ease-in-out infinite alternate}
+  .fogball:nth-child(2){animation-duration:7.4s}
+  .fogball:nth-child(3){animation-duration:5.2s}
+  @keyframes drift{to{transform:translateX(46px)}}
+  .heatwave{animation:heat 2.4s ease-in-out infinite}
+  @keyframes heat{0%,100%{opacity:.5}50%{opacity:1}}
+  .flow{stroke-dasharray:6 8;animation:flow 1.6s linear infinite}
+  @keyframes flow{to{stroke-dashoffset:-28}}
+
+  /* ===== 柒 营造实验室 ===== */
+  .lab{background:#fff;border:1px solid var(--line);padding:34px 30px}
+  .lab-top{display:flex;flex-wrap:wrap;gap:34px;margin-bottom:26px}
+  .lab-var h4{font-family:var(--serif);font-size:15px;letter-spacing:2px;color:var(--ink-2);margin-bottom:12px}
+  .lab-var h4 i{font-style:normal;color:var(--brass);margin-right:8px;font-family:var(--serif)}
+  .switch{display:flex;border:1px solid var(--line);width:max-content}
+  .switch button{padding:10px 22px;font-size:14.5px;background:transparent;border:none;cursor:pointer;color:var(--ink-2);font-family:var(--serif);letter-spacing:1px;transition:.25s}
+  .switch button.act{background:var(--brick);color:#fff}
+  .switch button:first-child.act{background:var(--jade)}
+  .lab-body{display:grid;grid-template-columns:1.2fr 1fr;gap:30px;align-items:center}
+  @media(max-width:860px){.lab-body{grid-template-columns:1fr}}
+  .lab-svg{background:var(--paper);border:1px dashed var(--line);padding:10px}
+  .lab-svg svg{width:100%;height:auto;display:block}
+  .lab-out h3{font-family:var(--serif);font-size:23px;letter-spacing:2px;margin-bottom:6px}
+  .lab-out .mode{display:inline-block;font-size:12.5px;letter-spacing:2px;padding:3px 12px;border:1px solid var(--brass);color:var(--brass);margin-bottom:16px}
+  .lab-out p{font-size:14.8px;color:var(--ink-2);margin-bottom:14px}
+  .lab-out .why{background:var(--paper-2);padding:14px 18px;font-size:14px;border-left:3px solid var(--brass)}
+  .lab-hint{font-size:12.5px;color:var(--ink-2);margin-top:16px;text-align:center;letter-spacing:1px}
+
+  /* ===== 捌 三条规律 ===== */
+  .laws{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  @media(max-width:860px){.laws{grid-template-columns:1fr}}
+  .law{background:#fff;border:1px solid var(--line);padding:28px 24px;position:relative}
+  .law .n{font-family:var(--serif);font-size:52px;color:var(--paper-2);position:absolute;top:6px;right:16px;font-weight:700;-webkit-text-stroke:1px var(--brass)}
+  .law h4{font-family:var(--serif);font-size:20px;letter-spacing:1px;margin-bottom:12px;color:var(--brick)}
+  .law p{font-size:14.5px;color:var(--ink-2)}
+
+  /* ===== 玖 知识闯关 ===== */
+  .quiz{background:#fff;border:1px solid var(--line);padding:34px 30px}
+  .quiz-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:8px;font-size:13.5px;color:var(--ink-2)}
+  .q-card{border-top:1px dashed var(--line);padding:22px 4px}
+  .q-card .q-no{font-family:var(--serif);font-size:13px;color:var(--brass);letter-spacing:2px;margin-bottom:8px}
+  .q-card h4{font-family:var(--serif);font-size:17.5px;margin-bottom:16px;line-height:1.6}
+  .opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:640px){.opts{grid-template-columns:1fr}}
+  .opts button{text-align:left;padding:12px 16px;font-size:14.3px;background:var(--paper);border:1px solid var(--line);cursor:pointer;transition:.25s;line-height:1.5}
+  .opts button:hover{border-color:var(--brass)}
+  .opts button.right{background:#E7F0EA;border-color:var(--jade);color:var(--jade);font-weight:600}
+  .opts button.wrong{background:#F6E7E2;border-color:var(--brick);color:var(--brick)}
+  .opts button:disabled{cursor:default;opacity:.92}
+  .q-exp{margin-top:12px;font-size:13.5px;color:var(--ink-2);background:var(--paper-2);padding:10px 14px;display:none}
+  .q-exp.show{display:block;animation:fade .4s}
+  .quiz-result{display:none;text-align:center;padding:26px 10px 6px;border-top:1px dashed var(--line)}
+  .quiz-result.show{display:block;animation:fade .5s}
+  .quiz-result h3{font-family:var(--serif);font-size:26px;letter-spacing:3px;color:var(--brick);margin-bottom:8px}
+  .quiz-result p{font-size:14.5px;color:var(--ink-2);margin-bottom:16px}
+  .cert-name{display:flex;gap:10px;justify-content:center;align-items:center;flex-wrap:wrap;margin-bottom:18px}
+  .cert-name input{padding:9px 14px;border:1px solid var(--line);font-size:14.5px;width:200px;background:var(--paper)}
+  .cert-name input:focus{outline:2px solid var(--brass)}
+  #certCanvas{max-width:100%;border:1px solid var(--line);margin-bottom:14px;background:#fff}
+
+  /* ===== 拾 速写台 ===== */
+  .sketch-wrap{background:#fff;border:1px solid var(--line);padding:26px}
+  .sketch-bar{display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:16px}
+  .sketch-bar .grp{display:flex;gap:8px;align-items:center}
+  .sketch-bar label{font-size:13px;color:var(--ink-2)}
+  .swatch{width:26px;height:26px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px var(--line);cursor:pointer;transition:.2s}
+  .swatch.act{box-shadow:0 0 0 3px var(--brick)}
+  .sketch-bar input[type=range]{width:110px;accent-color:var(--brick)}
+  .sketch-bar .btn{padding:8px 18px;font-size:13.5px}
+  #sketchCanvas{width:100%;height:520px;touch-action:none;background:#FBF8F0;border:1px dashed var(--line);cursor:crosshair;display:block}
+  .sketch-hint{font-size:12.5px;color:var(--ink-2);margin-top:12px;text-align:center}
+
+  /* ===== 任务单 ===== */
+  .sheet{background:#fff;border:1px solid var(--line);padding:34px 32px;position:relative}
+  .sheet::before{content:"研学任务单";position:absolute;top:-16px;left:30px;background:var(--brick);color:#fff;font-family:var(--serif);letter-spacing:4px;padding:6px 18px;font-size:15px}
+  .sheet-head{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin:10px 0 20px;font-size:13.5px;color:var(--ink-2)}
+  .progress-wrap{display:flex;align-items:center;gap:12px}
+  .progress{width:180px;height:8px;background:var(--paper-2);border:1px solid var(--line);border-radius:4px;overflow:hidden}
+  .progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--brass),var(--brick));transition:width .4s}
+  .task-group h5{font-family:var(--serif);font-size:16px;letter-spacing:2px;margin:18px 0 10px}
+  .task{display:flex;gap:12px;align-items:flex-start;padding:10px 12px;border-bottom:1px dashed var(--line);cursor:pointer;transition:.25s;font-size:14.8px}
+  .task:hover{background:var(--paper)}
+  .task input{margin-top:5px;accent-color:var(--brick);width:16px;height:16px;cursor:pointer}
+  .task.done span{text-decoration:line-through;color:var(--ink-2)}
+  .task .pts{margin-left:auto;font-size:12px;color:var(--brass);white-space:nowrap}
+  .open-q{margin-top:18px}
+  .open-q textarea{width:100%;min-height:74px;border:1px solid var(--line);background:var(--paper);padding:12px;font-family:var(--sans);font-size:14px;resize:vertical}
+  .open-q textarea:focus{outline:2px solid var(--brass)}
+  .sheet-actions{margin-top:22px;display:flex;gap:12px}
+  .btn{padding:10px 26px;border:1px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer;font-family:var(--serif);letter-spacing:2px;font-size:14.5px;transition:.25s}
+  .btn.ghost{background:transparent;color:var(--ink)}
+  .btn:hover{background:var(--brick);border-color:var(--brick);color:#fff}
+  .done-toast{position:fixed;left:50%;bottom:34px;transform:translate(-50%,80px);background:var(--ink);color:var(--paper);padding:12px 26px;font-size:14px;letter-spacing:1px;z-index:300;transition:.45s;opacity:0}
+  .done-toast.show{transform:translate(-50%,0);opacity:1}
+
+  /* ===== lightbox ===== */
+  .lightbox{position:fixed;inset:0;z-index:200;background:rgba(18,14,8,.86);display:none;align-items:center;justify-content:center;padding:26px}
+  .lightbox.open{display:flex;animation:fade .3s}
+  .lightbox img{max-width:92vw;max-height:88vh;border:4px solid var(--paper);background:#fff}
+
+  footer{border-top:1px solid var(--line);margin-top:90px;padding:44px 24px 60px;text-align:center;color:var(--ink-2);font-size:13.5px}
+  footer .f-title{font-family:var(--serif);font-size:19px;letter-spacing:4px;color:var(--ink);margin-bottom:12px}
+  footer p{margin:4px 0}
+  @media print{
+    nav,.hero,.hero-scroll,.sheet-actions,.done-toast,.sketch-wrap,.quiz{display:none!important}
+    body{background:#fff}
+    section{padding:24px 0}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <div class="brand">一宅一馆<em>·</em>筑见中西</div>
+    <div class="nav-links">
+      <a href="#why">缘起</a>
+      <a href="#grammar">气候语法</a>
+      <a href="#climate">气候模拟</a>
+      <a href="#dims">六维对照</a>
+      <a href="#four">部位细读</a>
+      <a href="#anatomy">构件拆解</a>
+      <a href="#lab">营造实验室</a>
+      <a href="#laws">结论</a>
+      <a href="#quiz">知识闯关</a>
+      <a href="#sketch">速写台</a>
+      <a href="#sheet">任务单</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="half left">
+    <img src="img/jy-guild-front.jpg" alt="广州湾商会会址正立面">
+    <div class="veil"></div>
+    <div class="tag">
+      <small>馆 · 公共商馆</small>
+      <h2>广州湾商会会址</h2>
+      <p>1925 年竣工 · 湛江赤坎民主路 105 号 · 粤西最大商会所在地</p>
+    </div>
+  </div>
+  <div class="half right">
+    <img src="img/jingyuan-gate.jpg" alt="静园大门">
+    <div class="veil"></div>
+    <div class="tag">
+      <small>宅 · 私人宅邸</small>
+      <h2>静 园</h2>
+      <p>1926 年建成 · 南兴街 49 号 · 商会会长陈斯静私宅</p>
+    </div>
+  </div>
+  <div class="hero-mid">
+    <div class="kicker">湛江 · 赤坎老街 · 近代建筑研学</div>
+    <h1>一宅一馆<br>筑见中西</h1>
+    <p class="q">同一个建造者，同一年代，同一套材料——<br>为什么长成两种完全不同的空间？</p>
+    <div class="rule"></div>
+  </div>
+  <div class="hero-scroll">▼ 向下滚动，做一次控制变量实验</div>
+</header>
+
+<!-- ============ 壹 缘起 ============ -->
+<section id="why">
+  <div class="sec-head reveal">
+    <span class="no">壹</span>
+    <h2>为什么是「一宅一馆」</h2>
+    <span class="sub">一组天然的控制变量实验</span>
+  </div>
+  <p class="lead reveal">科学课教我们：<b>研究一个变量的影响，要控制其他变量不变。</b>赤坎老街恰好保留了这样一组对照样本——两栋建筑同属「南洋折中」风格，同处亚热带湿热气候，由同一位潮州商人圈层主持建造，材料都经同一口岸转运。<b>唯一的不同，是「公共集体使用」与「家族私人居住」。</b></p>
+
+  <div class="vs-grid reveal">
+    <div class="dossier guild">
+      <h3>广州湾商会会址</h3>
+      <div class="en">GUILD HALL · 公共建筑代表</div>
+      <figure><img src="img/guild-facade.jpg" alt="商会会址立面"></figure>
+      <dl>
+        <dt>建成</dt><dd>1925 年</dd>
+        <dt>地址</dt><dd>民主路 105 号（旧称海边街，临街直面古码头）</dd>
+        <dt>主持</dt><dd>陈斯静 等商会众人</dd>
+        <dt>功能</dt><dd>集会 · 议事 · 商务办公，人流密集</dd>
+        <dt>气质</dt><dd>规整对称、气派外向，强调公共仪式感</dd>
+      </dl>
+    </div>
+    <div class="vs-badge">对照</div>
+    <div class="dossier home">
+      <h3>静 园</h3>
+      <div class="en">JING YUAN · 私人宅邸代表</div>
+      <figure><img src="img/jingyuan-facade.jpg" alt="静园临街立面"></figure>
+      <dl>
+        <dt>建成</dt><dd>1926 年</dd>
+        <dt>地址</dt><dd>南兴街 49 号（临街面窄，进深 42 米，占地 785.4 ㎡）</dd>
+        <dt>主人</dt><dd>陈斯静 —— 商会第一、二、四届会长</dd>
+        <dt>功能</dt><dd>家族居住，私密为主</dd>
+        <dt>气质</dt><dd>院落内向、精致含蓄，服务于居家生活</dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="var-note reveal">
+    <b>对比价值：</b>建造时代、建造者圈层、建筑材料供应链高度一致，唯一核心变量是「公共集体使用 vs 家族私人居住」。两栋建筑共享南洋折中风格的外壳，却因「公共」与「私人」的功能分野，走向截然不同的空间组织方式——这正是理解广州湾近代建筑本土化的关键切口。
+  </div>
+
+  <div class="timeline reveal">
+    <div class="t-item"><div class="year">1899</div><div class="what">法国租借广州湾</div><p>赤坎成为自由港商贸集散地，华商聚集，潮州、广府商人纷纷来此开店，依托古码头发展贸易。</p></div>
+    <div class="t-item"><div class="year">1925</div><div class="what">广州湾商会会址落成</div><p>华人商界集体力量的实体象征——建筑形态，是社会权力的物质外壳。</p></div>
+    <div class="t-item"><div class="year">1926</div><div class="what">静园建成</div><p>商会会长陈斯静的私宅。这位潮州商人还创办了益智学校与晨光小学，抗战期间组织募捐支援十九路军。</p></div>
+    <div class="t-item"><div class="year">1945</div><div class="what">广州湾回归</div><p>更名湛江。两栋建筑留存至今：静园按「修旧如旧」原则完成修缮，曾作日夜照相馆，现为赤坎老街文化节点。</p></div>
+  </div>
+</section>
+
+<!-- ============ 贰 气候语法 ============ -->
+<section id="grammar">
+  <div class="sec-head reveal">
+    <span class="no">贰</span>
+    <h2>相同点：同一套「湿热气候建筑语法」</h2>
+    <span class="sub">风格 · 气候 · 构件 · 材料</span>
+  </div>
+  <p class="lead reveal">在谈差异之前，先看它们共享的底层语法：西方古典语言 + 岭南气候做法，在两栋建筑上以同一套技术词汇出现。</p>
+
+  <div class="four-grid reveal">
+    <div class="f-card"><div class="idx">STYLE / 01</div><h4>风 格</h4><p>拱廊 / 南洋折中主义——西方古典柱式、拱券与岭南传统做法的组合，两地皆然。</p></div>
+    <div class="f-card"><div class="idx">CLIMATE / 02</div><h4>气 候</h4><p>湛江夏季高温日多、日照强，雨季多雨、夏秋多台风，沿海还有盐雾腐蚀——遮阳、排水、通风、防盐雾是共同命题。</p></div>
+    <div class="f-card"><div class="idx">ELEMENT / 03</div><h4>构 件</h4><p>宝瓶栏杆、拱券、线脚、百叶窗——同一批「外来零件」，在两栋建筑上都能找到。</p></div>
+    <div class="f-card"><div class="idx">MATERIAL / 04</div><h4>材 料</h4><p>红毛泥（进口水泥）、红砖，局部灰塑装饰——同一时代、同一供应链。</p></div>
+  </div>
+
+  <div class="story reveal">
+    <div>
+      <img src="img/cement-barrel.jpg" alt="装载红毛泥的木桶">
+      <div class="cap">现场采集：可能用于转运「红毛泥」的木桶 · 赤坎</div>
+    </div>
+    <div>
+      <h4>小知识：什么是「红毛泥」？</h4>
+      <p>清末民国，广东沿海民间习惯把西洋人称作「红毛」。水泥最早从欧美经香港转运进口到广州湾，装在这样的大木桶里卸上岸，所以本地人把它叫作<b style="color:var(--brick)">「红毛泥」</b>。一栋楼用什么泥，背后是一条跨海的贸易航线——材料本身就是广州湾自由港历史的注脚。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 叁 气候模拟（原第六章，移至第二章后） ============ -->
+<section id="climate">
+  <div class="sec-head reveal">
+    <span class="no">叁</span>
+    <h2>三种气候场景模拟</h2>
+    <span class="sub">高温气流 · 暴雨 · 盐雾 —— 看两栋楼各自接招</span>
+  </div>
+  <p class="lead reveal">气候是两栋楼共同的考官。切换场景，观察同一套「湿热气候建筑语法」在公共馆与私人宅上<b>各自解题</b>。</p>
+
+  <div class="clim-tabs reveal" id="climTabs">
+    <button data-c="heat" class="act">☀ 高温气流</button>
+    <button data-c="rain">🌧 暴雨</button>
+    <button data-c="fog">🌊 盐雾</button>
+  </div>
+  <div class="clim-wrap reveal">
+    <div class="clim-svg" id="climSvg"></div>
+    <div class="clim-out">
+      <h3 id="climTitle"></h3>
+      <p id="climDesc"></p>
+      <div class="duel">
+        <div id="climGuild"></div>
+        <div id="climHome"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 肆 六维度对照台（公共 vs 私人） ============ -->
+<section id="dims">
+  <div class="sec-head reveal">
+    <span class="no">肆</span>
+    <h2>核心差异：公共逻辑 vs 私人逻辑</h2>
+    <span class="sub">点击维度 · 每维度两图对照 · 可点击放大</span>
+  </div>
+  <p class="lead reveal">两种功能定位，决定了两种完全不同的空间组织方式：一栋<b>为人群议事而建</b>，一栋<b>为家族居住而建</b>。六个维度逐一切换对照，每个维度各配两张小组 PPT 实拍图——点击任意照片可放大细看。</p>
+
+  <div class="dim-tabs reveal" id="dimTabs"></div>
+  <div class="dim-stage reveal">
+    <div class="dim-col g" id="dimG"></div>
+    <div class="dim-arrow">⇄</div>
+    <div class="dim-col h" id="dimH"></div>
+  </div>
+  <div class="dim-insight reveal" id="dimInsight"></div>
+  <p class="lead reveal" style="margin-top:38px"><b style="color:var(--brick)">部位层面的「公共 vs 私人」规律</b>——把镜头推近到屋顶、门窗、墙体、庭院，功能逻辑依然清晰可读：</p>
+  <div class="four-grid reveal">
+    <div class="f-card"><div class="idx">ROOF / 01</div><h4>屋 顶</h4><p>商会：女儿墙做成<b>「公共立面的秩序」</b>，与街道争高、供人仰望；静园：女儿墙退后，只当<b>「生活的边框」</b>，不与街道争高。</p></div>
+    <div class="f-card"><div class="idx">WINDOW / 02</div><h4>门 窗</h4><p>同是西式窗：公共建筑<b>重表现</b>——窗是立面的主角；私宅<b>重调节</b>——百叶的开合角度就是当年的室温旋钮。</p></div>
+    <div class="f-card"><div class="idx">WALL / 03</div><h4>墙 体</h4><p>同一批进口材料：公共建筑<b>用来看</b>（远观质感与体面），私宅<b>用来住</b>（近身耐久，优先用在手摸得到的地方）。</p></div>
+    <div class="f-card"><div class="idx">COURT / 04</div><h4>庭 院</h4><p>院落的双重身份：既是<b>气候装置</b>（通风遮阳），也是<b>身份标签</b>——商会向心聚拢人群，静园向内守护家人。</p></div>
+  </div>
+</section>
+
+<!-- ============ 伍 四维部位对照表（中西融合细读） ============ -->
+<section id="four">
+  <div class="sec-head reveal">
+    <span class="no">伍</span>
+    <h2>部位细读：屋顶 · 门窗 · 墙体 · 庭院</h2>
+    <span class="sub">《建筑细节四维对照表》网页版 · 每格两张实拍</span>
+  </div>
+  <p class="lead reveal">把两栋楼拆成<b>四个部位</b>细读，看到的不是「谁中谁西」，而是<b>中西如何在同一堵墙、同一扇窗上握手</b>：西方的形制与材料，中国的工艺与生活智慧，逐一咬合成整体——每格两张现场照片，每条融合线索都能指到实物。</p>
+  <div id="cmpList" class="reveal"></div>
+</section>
+
+<!-- ============ 陆 构件拆解（中西合璧零件盒） ============ -->
+<section id="anatomy">
+  <div class="sec-head reveal">
+    <span class="no">陆</span>
+    <h2>建筑构件点击拆解</h2>
+    <span class="sub">点击照片上的热点 · 逐件读懂「中西合璧」</span>
+  </div>
+  <p class="lead reveal">一栋广州湾建筑就是一个<b>「中西合璧零件盒」</b>：匾额是中文的、门楼是西式的；拱窗来自西方、百叶用法是岭南的；纹样出自西洋图集、锻打靠本地铁匠。切换楼栋，<b>点击照片上闪烁的热点</b>，把每一处融合的接缝拆开看。</p>
+
+  <div class="ana-tabs reveal">
+    <button data-b="guild" class="act">馆 · 商会会址立面拆解</button>
+    <button data-b="home">宅 · 静园门楼拆解</button>
+  </div>
+  <div class="ana-wrap reveal">
+    <div class="hs-stage" id="hsStage"></div>
+    <div class="hs-info" id="hsInfo"></div>
+  </div>
+  <div class="hs-hint reveal">※ 热点位置为示意标注，实际构件以现场为准。</div>
+</section>
+
+<!-- ============ 柒 营造实验室 ============ -->
+<section id="lab">
+  <div class="sec-head reveal">
+    <span class="no">柒</span>
+    <h2>营造实验室：拨动变量，重盖一栋楼</h2>
+    <span class="sub">交互推演 · 功能 × 场地</span>
+  </div>
+  <p class="lead reveal">如果当年建造者面对的条件不同，建筑会长成什么样？拨动下面两个开关，看看同一套技术在不同约束下的<b>理性分化</b>。</p>
+
+  <div class="lab reveal">
+    <div class="lab-top">
+      <div class="lab-var">
+        <h4><i>变量一</i>建筑功能</h4>
+        <div class="switch" id="swFunc">
+          <button data-v="public" class="act">公共 · 集体议事</button>
+          <button data-v="home">私人 · 家族居住</button>
+        </div>
+      </div>
+      <div class="lab-var">
+        <h4><i>变量二</i>场地条件</h4>
+        <div class="switch" id="swSite">
+          <button data-v="street" class="act">临街窄面 · 直面码头</button>
+          <button data-v="deep">进深宽地 · 可向内生长</button>
+        </div>
+      </div>
+    </div>
+    <div class="lab-body">
+      <div class="lab-svg" id="labSvg"></div>
+      <div class="lab-out">
+        <span class="mode" id="labMode"></span>
+        <h3 id="labTitle"></h3>
+        <p id="labDesc"></p>
+        <div class="why" id="labWhy"></div>
+      </div>
+    </div>
+    <div class="lab-hint">※ 气候是常量：无论哪种组合，遮阳、通风、排水、防盐雾都必须解决——只是解题姿势不同。</div>
+  </div>
+</section>
+
+<!-- ============ 捌 结论 ============ -->
+<section id="laws">
+  <div class="sec-head reveal">
+    <span class="no">捌</span>
+    <h2>研学结论：共享时代语言，因功能而分化</h2>
+    <span class="sub">三条本土化改造规律</span>
+  </div>
+  <p class="lead reveal">静园与广州湾商会会址共享同一个时代的建筑语言，却因为公共 / 私人功能不同，发展出截然不同的空间形态。它们共同见证了广州湾时期本土建筑对外来风格的吸收与本土化改造。</p>
+  <div class="laws reveal">
+    <div class="law"><div class="n">壹</div><h4>建筑是功能的诚实表达</h4><p>骑楼、拱廊、百叶窗不只是装饰，而是对湛江湿热气候与不同使用场景的回应。外廊服务人群，天井服务家庭。</p></div>
+    <div class="law"><div class="n">贰</div><h4>本土化不是简单模仿</h4><p>西方柱式与岭南院落、南洋通风策略被重新组合，形成「湛江版本」的近代建筑——红毛泥砌岭南墙，爱奥尼柱立天井畔。</p></div>
+    <div class="law"><div class="n">叁</div><h4>保护需要理解差异</h4><p>商会侧重公共立面与结构安全，静园侧重院落格局与生活细节。读懂差异，才能按各自的逻辑「修旧如旧」。</p></div>
+  </div>
+</section>
+
+<!-- ============ 玖 知识闯关 ============ -->
+<section id="quiz">
+  <div class="sec-head reveal">
+    <span class="no">玖</span>
+    <h2>知识闯关：六题登顶</h2>
+    <span class="sub">答完自动判分 · 生成通关证书</span>
+  </div>
+  <div class="quiz reveal">
+    <div class="quiz-top">
+      <span>共 6 题，每题只有一个正确答案 · 每答一题立即显示解析，全部答完自动计分</span>
+      <span>得分 <b id="quizScore" style="color:var(--brick)">0</b> / 6</span>
+    </div>
+    <div id="quizList"></div>
+    <div class="quiz-result" id="quizResult">
+      <h3 id="quizGrade"></h3>
+      <p id="quizMsg"></p>
+      <div class="cert-name">
+        <label for="certName">证书署名</label>
+        <input id="certName" maxlength="12" placeholder="输入你的姓名">
+        <button class="btn" id="certGen">生成通关证书</button>
+        <button class="btn ghost" id="quizReset">再闯一次</button>
+      </div>
+      <canvas id="certCanvas" width="900" height="600"></canvas>
+      <p style="font-size:12.5px;color:var(--ink-2)">提示：双击证书图片即可保存到本地</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 拾 速写台 ============ -->
+<section id="sketch">
+  <div class="sec-head reveal">
+    <span class="no">拾</span>
+    <h2>虚拟速写台</h2>
+    <span class="sub">画笔 · 调色 · 清除 · 导出图片</span>
+  </div>
+  <div class="sketch-wrap reveal">
+    <div class="sketch-bar">
+      <div class="grp" id="swatches">
+        <label>调色</label>
+        <button class="swatch act" data-c="#23201A" style="background:#23201A" title="墨色"></button>
+        <button class="swatch" data-c="#A0402C" style="background:#A0402C" title="砖红"></button>
+        <button class="swatch" data-c="#2F5D50" style="background:#2F5D50" title="青绿"></button>
+        <button class="swatch" data-c="#A5814B" style="background:#A5814B" title="黄铜"></button>
+        <button class="swatch" data-c="#FBF8F0" style="background:#FBF8F0" title="纸白（当橡皮用）"></button>
+      </div>
+      <div class="grp">
+        <label>画笔 <span id="brushVal">3</span> px</label>
+        <input type="range" id="brushSize" min="1" max="18" value="3">
+      </div>
+      <div class="grp" style="margin-left:auto">
+        <button class="btn ghost" id="sketchClear">清除画布</button>
+        <button class="btn" id="sketchSave">导出图片</button>
+      </div>
+    </div>
+    <canvas id="sketchCanvas"></canvas>
+    <div class="sketch-hint">研学小贴士：像实地速写一样，画一个<b>门洞或小人</b>当尺寸参照物，别人才能看懂你的建筑有多大。（纸白色画笔可当橡皮修改）</div>
+  </div>
+</section>
+
+<!-- ============ 任务单 ============ -->
+<section id="sheet">
+  <div class="sec-head reveal">
+    <span class="no">附</span>
+    <h2>赤坎研学任务单</h2>
+    <span class="sub">把网页装进书包 · 去现场打卡</span>
+  </div>
+  <div class="sheet reveal">
+    <div class="sheet-head">
+      <span>《寻迹赤坎 —— 中西合璧建筑实地探究》 · 建议对象：中小学生 · 用时约 40 分钟</span>
+      <div class="progress-wrap">完成度 <div class="progress"><i id="prog"></i></div> <b id="progTxt">0%</b></div>
+    </div>
+
+    <div class="task-group">
+      <h5>一、现场寻找线索（每处记得拍照并记下照片编号）</h5>
+      <label class="task"><input type="checkbox"><span>在商会会址找到<b>连续拱廊</b>，数一数有几开间</span><span class="pts">打卡点 A</span></label>
+      <label class="task"><input type="checkbox"><span>在商会屋顶 / 阳台找到<b>宝瓶女儿墙</b>，观察它的尺度（远观是否清晰）</span><span class="pts">打卡点 B</span></label>
+      <label class="task"><input type="checkbox"><span>在静园找到<b>内院天井</b>，站在院中抬头看天，感受「拔风」</span><span class="pts">打卡点 C</span></label>
+      <label class="task"><input type="checkbox"><span>在静园二楼小阳台找到<b>宝瓶栏杆</b>，对比它与商会女儿墙的尺度差异</span><span class="pts">打卡点 D</span></label>
+      <label class="task"><input type="checkbox"><span>找到<b>百叶窗</b>，开合一次，想想它如何同时解决通风、遮阳与防雨</span><span class="pts">打卡点 E</span></label>
+      <label class="task"><input type="checkbox"><span>以门洞或同伴为参照物，画一张任一建筑的<b>简易速写</b>并标注尺寸</span><span class="pts">打卡点 F</span></label>
+    </div>
+
+    <div class="task-group">
+      <h5>二、思考与判断</h5>
+      <label class="task"><input type="checkbox"><span>连线题：把「外廊遮阳 / 内院拔风 / 女儿墙 / 天井」与「商会 / 静园」正确配对</span><span class="pts">思考题 1</span></label>
+      <label class="task"><input type="checkbox"><span>说出至少 <b>3 条</b>西洋建筑在湛江本土化改造的规律，并给出对应的照片编号证据</span><span class="pts">思考题 2</span></label>
+      <label class="task"><input type="checkbox"><span>假如把商会会址改成民居、把静园改成商会，各自会遇到什么麻烦？</span><span class="pts">思考题 3</span></label>
+    </div>
+
+    <div class="open-q">
+      <h5>三、开放性问题（现场作答）</h5>
+      <textarea id="openAns" placeholder="我认为「建筑功能决定建筑形式」，是因为……"></textarea>
+    </div>
+
+    <div class="sheet-actions">
+      <button class="btn" onclick="window.print()">打印 / 存档任务单</button>
+      <button class="btn ghost" id="resetSheet">重新开始</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="f-title">一宅一馆 · 筑见中西</div>
+  <p>第九组大学生研学综合实践项目 · 成员：卢佳琪 刘玉香 黄心怡 林燕沙 罗锦铱 黄舒畅</p>
+  <p>调研对象：湛江赤坎 静园（南兴街 49 号）· 广州湾商会会址（民主路 105 号）</p>
+  <p>本站图片均为小组实地拍摄 / 手绘，仅用于教学科普 · 科学教育师范生跨学科实践成果</p>
+</footer>
+
+<!-- lightbox -->
+<div class="lightbox" id="lb"><img id="lbImg" src="" alt="放大查看"></div>
+
+<div class="done-toast" id="toast">🎉 任务单已全部完成，可以向老师提交啦！</div>
+
+<script>
+/* ================= 叁：六维度数据（每维度左右各两张 PPT 实拍） ================= */
+const DIMS=[
+ {k:"功能",
+  g:{imgs:[["img/guild-hall.jpg","馆内高大贯通的公共大厅"],["img/guild-facade.jpg","临街立面：为「人群」设计的门面"]],
+     t:"集会 · 议事 · 商务办公，人流密集，需要容纳大量人群同时活动。"},
+  h:{imgs:[["img/jingyuan-lane.jpg","静园内向的生活巷道"],["img/jingyuan-facade.jpg","窄面临街：为「家人」设计的门楼"]],
+     t:"家族居住，私密为主，空间围绕一家人的日常起居组织。"},
+  why:"<b>功能是总开关。</b>「容纳人群」与「安顿家人」是两种完全不同的空间需求，一切差异由此展开。"},
+ {k:"布局",
+  g:{imgs:[["img/guild-corridor.jpg","规整对称的公共内廊"],["img/guild-arches.jpg","连续拱券：秩序感的重复"]],
+     t:"规整对称，大前厅大空间——进入即感受到集体秩序与气派。"},
+  h:{imgs:[["img/jingyuan-court.jpg","内院天井：先抑后扬"],["img/jingyuan-lane.jpg","巷道层层递进、内外有别"]],
+     t:"院落式布局，主次分区，以内院作过渡，层层递进、内外有别。"},
+  why:"对称大空间表达<b>公开与权威</b>；院落进深表达<b>私密与次序</b>（外人—厅—内院—居室）。"},
+ {k:"通风",
+  g:{imgs:[["img/guild-facade.jpg","宽大外廊：整面通风"],["img/guild-corridor.jpg","廊下阴影：人群的凉棚"]],
+     t:"外廊宽大，供多人通行并遮阳纳凉，靠「面的通风」服务公共人流。"},
+  h:{imgs:[["img/jingyuan-court.jpg","天井拔风：热空气上升"],["img/jingyuan-veranda.jpg","檐廊与百叶：逐间调节"]],
+     t:"内院拔风 + 天井构造，百叶窗逐间调节——靠「井的拔风」服务每个房间。"},
+  why:"同样是应对湿热气候：公共建筑<b>横向大面积通风</b>，住宅<b>竖向拔风 + 可调节百叶</b>，各解其题。"},
+ {k:"构件",
+  g:{imgs:[["img/guild-balustrade.jpg","宝瓶女儿墙 + 拱窗百叶"],["img/guild-railing.jpg","宝瓶栏杆近景：立面秩序"]],
+     t:"骑楼 · 宝瓶女儿墙 · 花窗——构件面向街道，参与塑造公共立面。"},
+  h:{imgs:[["img/jingyuan-column.jpg","罗马涡卷柱：退入院落"],["img/jingyuan-shutter.jpg","木百叶：生活的调节器"]],
+     t:"罗马涡卷柱 · 小阳台——构件退入院落，服务观景与生活情致。"},
+  why:"同类西方构件，公共建筑里是<b>「面」的语言</b>（立面秩序），住宅里是<b>「点」的语言</b>（生活边框）。"},
+ {k:"场地",
+  g:{imgs:[["img/jy-guild-front.jpg","民主路临街，直面古码头"],["img/guild-facade.jpg","街道就是它的使用场景"]],
+     t:"位于民主路（旧称海边街），临街直面古码头——城市街道本身就是它的使用场景。"},
+  h:{imgs:[["img/jingyuan-gate.jpg","南兴街 49 号，窄门楼"],["img/jingyuan-veranda.jpg","进深 42 米，向内生长"]],
+     t:"临街面窄、进深 42 米、占地 785.4 ㎡——有充足土地向内发展院落。"},
+  why:"场地不是借口而是<b>条件</b>：没有进深，就长不出静园的天井；不临码头，就不需要商会的门面。"},
+ {k:"尺度",
+  g:{imgs:[["img/sketch-balustrade.jpg","速写：女儿墙构件拆解标注"],["img/guild-detail.jpg","立面近景：远观可读的大尺度"]],
+     t:"尺度较大，远观可读；装饰繁复，强调仪式感、秩序感——为「看」而设计。"},
+  h:{imgs:[["img/stained-glass.jpg","花玻璃：近人尺度的花影"],["img/jingyuan-door.jpg","木门彩玻璃：为「住」而设计"]],
+     t:"尺度较小，近人尺度；精致含蓄、亲切生活化——为「住」而设计。"},
+  why:"公共建筑供<b>远观</b>（街道视角），私宅供<b>近赏</b>（身体视角）。细部尺度，暴露了建筑真正的观众是谁。"}
+];
+const tabsEl=document.getElementById('dimTabs');
+DIMS.forEach((d,i)=>{const b=document.createElement('button');b.textContent=d.k;if(i===0)b.classList.add('act');b.onclick=()=>{document.querySelectorAll('.dim-tabs button').forEach(x=>x.classList.remove('act'));b.classList.add('act');renderDim(i)};tabsEl.appendChild(b)});
+function dimCol(d,side){const who=side==='g'?'馆 · 广州湾商会会址（公共）':'宅 · 静园（私人）';
+  const s=d[side];
+  const figs=s.imgs.map(f=>`<figure data-src="${f[0]}"><img src="${f[0]}" alt="${f[1]}" loading="lazy"><figcaption>${f[1]}</figcaption></figure>`).join('');
+  return `<div class="who">${who}</div><div class="dim-imgs">${figs}</div><p>${s.t}</p>`}
+function renderDim(i){const d=DIMS[i];
+  const g=document.getElementById('dimG'),h=document.getElementById('dimH');
+  g.innerHTML=dimCol(d,'g');h.innerHTML=dimCol(d,'h');
+  [g,h].forEach(el=>{el.classList.remove('fade');void el.offsetWidth;el.classList.add('fade')});
+  document.getElementById('dimInsight').innerHTML=d.why;}
+renderDim(0);
+
+/* ================= 肆：四维部位对照表（每格两张实拍） ================= */
+const FOUR=[
+ {tag:"部位一",name:"屋顶与女儿墙",
+  g:{imgs:[["img/guild-detail.jpg","商会立面近景：宝瓶栏杆带压住屋顶轮廓"],["img/guild-railing.jpg","宝瓶栏杆近景：女儿墙的「秩序感」"]],
+     t:"源自欧洲的宝瓶栏杆（Balustrade）被成排复制、压住屋顶边缘，配通风口与压顶线脚——西方的栏杆形制，由本地工匠用进口红毛泥现场浇塑，中西在屋顶线上合了体。"},
+  h:{imgs:[["img/jingyuan-facade.jpg","静园临街顶部：平缓压顶山花"],["img/jingyuan-gate.jpg","门楼山花：低调的收边"]],
+     t:"西式压顶与山花收边手法落在静园屋顶，但轮廓刻意放平、收低调——西方的「收边语法」翻译成中国宅院的含蓄，屋顶重新服务于屋内生活。"},
+  law:"同是西式女儿墙语汇：<b>形制来自西方，气质留在中国</b>——商会翻成「体面的排场」，静园翻成「居家的收边」。"},
+ {tag:"部位二",name:"门窗与窗花",
+  g:{imgs:[["img/guild-facade.jpg","商会法式百叶拱窗"],["img/stained-glass.jpg","进口彩色玻璃花窗"]],
+     t:"西式拱窗的框里，装的却是岭南人发明的用法：木百叶按需开合，兼顾遮阳通风挡雨；彩色玻璃经海路进口，色彩审美却贴着中国人「花好月圆」的意头。"},
+  h:{imgs:[["img/jingyuan-shutter.jpg","静园木百叶特写"],["img/jingyuan-door.jpg","照相院时期彩玻璃木门"]],
+     t:"百叶逐间开合是岭南的通风智慧，彩玻璃嵌进中国传统木门——一扇门上，西方工业材料与中国木作工艺严丝合缝。"},
+  law:"拱窗是西方的「形」，百叶是岭南的「用」——<b>形用合一，就是融合的字面注解</b>。"},
+ {tag:"部位三",name:"墙体与材料",
+  g:{imgs:[["img/jy-guild-front.jpg","红毛泥抹灰 + 横向线脚分层"],["img/guild-floor.jpg","水磨石 / 红陶砖铺地"]],
+     t:"进口红毛泥（西方水泥）抹灰，配西方古典横向线脚分层，铺地却用水磨石与红陶砖这类本地做法——一堵墙里，进口材料、西式线脚、本土工艺三层叠写。"},
+  h:{imgs:[["img/jingyuan-column.jpg","水刷石涡卷柱：经得起摸"],["img/cement-barrel.jpg","红毛泥转运木桶"]],
+     t:"西式涡卷柱的柱身用水刷石做面——西方柱式语言 + 本地石作工艺；柱子做在廊下「手摸得到」的地方，融合的成果还要经得起中国人的日常使用。"},
+  law:"红毛泥是西方工业品，用法处处顺着<b>本地的气候与生活</b>——材料全球化的「赤坎落地样本」。"},
+ {tag:"部位四",name:"庭院与廊道",
+  g:{imgs:[["img/guild-corridor.jpg","商会内廊：西式拱廊围出「院」"],["img/guild-arches.jpg","连续拱：廊道即大厅"]],
+     t:"连续半圆拱廊源自地中海传统，在湛江却同时干着遮阳、通风与人群集散三份活——西方的空间原型被岭南气候重新定义了用途。"},
+  h:{imgs:[["img/jingyuan-court.jpg","天井：中式拔风古法"],["img/jingyuan-veranda.jpg","檐廊：西式外廊 × 中国生活"]],
+     t:"天井拔风源自岭南传统民居的千年古法，檐廊却是西式外廊的做法——两个传统各自的气候智慧，被拼装进同一栋宅子里，廊下还摆得下一把中国藤椅。"},
+  law:"<b>天井是中国的，拱廊是西方的</b>——中西两套气候智慧装进同一栋楼，这就是广州湾建筑的融合底色。"}
+];
+document.getElementById('cmpList').innerHTML=FOUR.map(f=>`
+ <div class="cmp-item">
+  <div class="cmp-head"><span class="tag4">${f.tag}</span><h4>${f.name}</h4><span class="law-chip">${f.law.replace(/<[^>]+>/g,'')}</span></div>
+  <div class="cmp-body">
+   <div class="cmp-col g"><div class="who">馆 · 商会会址</div>
+    <div class="cmp-thumbs">${f.g.imgs.map(x=>`<figure data-src="${x[0]}"><img src="${x[0]}" alt="${x[1]}" loading="lazy"><figcaption>${x[1]}</figcaption></figure>`).join('')}</div>
+    <p>${f.g.t}</p></div>
+   <div class="cmp-col h"><div class="who">宅 · 静园</div>
+    <div class="cmp-thumbs">${f.h.imgs.map(x=>`<figure data-src="${x[0]}"><img src="${x[0]}" alt="${x[1]}" loading="lazy"><figcaption>${x[1]}</figcaption></figure>`).join('')}</div>
+    <p>${f.h.t}</p></div>
+  </div>
+  <div class="cmp-law">📌 规律：${f.law}</div>
+ </div>`).join('');
+
+/* lightbox：点击任意对照图放大 */
+const lb=document.getElementById('lb'),lbImg=document.getElementById('lbImg');
+document.addEventListener('click',e=>{
+  const fig=e.target.closest('figure[data-src]');
+  if(fig){lbImg.src=fig.dataset.src;lb.classList.add('open')}
+});
+lb.onclick=()=>lb.classList.remove('open');
+document.addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('open')});
+
+/* ================= 伍：构件点击拆解（热点弹窗） ================= */
+const BUILDINGS={
+ guild:{img:"img/jy-guild-front.jpg",title:"广州湾商会会址 · 立面拆解",sub:"民主路 105 号 · 1925 年",
+  parts:[
+   {x:50,y:7,name:"山花 · 钟楼",sub:"西式构图 · 本地灰塑",
+    t:"顶部钟形山花与圆窗是欧洲古典立面的经典收头，本地工匠用水泥灰塑把它现场塑造出来——西方的构图逻辑，中国的手工落地，隔着一条街也看得清。",
+    meta:"观察要点：灰塑的曲面工艺——形是西方的，工是本地的。"},
+   {x:50,y:33,name:"拱形百叶大窗",sub:"法式构件 · 岭南用法",
+    t:"西式拱窗里装的是木百叶：关上是立面，打开是通风口。西方的「形」装进岭南的「用」，是本土化最典型的一处。",
+    meta:"观察要点：百叶角度——兼顾通风、遮阳与挡雨。"},
+   {x:50,y:47,name:"宝瓶栏杆阳台带",sub:"西方语汇 · 中国寓意",
+    t:"宝瓶（谐音「保平」）栏杆源自欧洲 Balustrade 传统，成排复制压住女儿墙——防护之外更是装饰收边；形制是进口的，吉祥话是中文的，秩序感由重复产生。",
+    meta:"观察要点：宝瓶的本地吉祥寓意——西式构件被中国文化重新注解。"},
+   {x:50,y:66,name:"拱廊入口",sub:"半圆拱门廊",
+    t:"半圆拱门廊是人流集散的礼仪性入口：进门前先「穿越」一段被强调的公共空间，仪式感由此开始。",
+    meta:"观察要点：门廊深度与台阶——抬高首层兼防涝防潮。"},
+   {x:13,y:42,name:"侧翼百叶窗",sub:"五开间韵律",
+    t:"侧翼窗与中央大窗同构，横向重复形成五开间韵律——公共建筑用「重复」表达集体与秩序。",
+    meta:"对比记忆：静园的窗各自为政，服务各自房间。"},
+   {x:15,y:62,name:"绿色遮阳篷",sub:"时代叠痕",
+    t:"后加的商用遮阳篷「叠」在老立面上——建筑继续被使用，是它活到今天的证据，也是修缮中需要判断取舍的部分。",
+    meta:"保护视角：识别「原物」与「添加物」，是修旧如旧的第一步。"},
+   {x:50,y:90,name:"台阶基座",sub:"抬高的首层 · 中西各解其义",
+    t:"整栋楼站在台阶之上：防涝、防潮、挡盐雾溅水是岭南的实际需要；「高台」意象又暗合中国传统建筑的台基等级观念——西方的立面立在东方的台基上，一举两得。",
+    meta:"观察要点：赤坎临街建筑普遍抬高首层，回应雨季与台风。"}]},
+ home:{img:"img/jingyuan-gate.jpg",title:"静园 · 门楼拆解",sub:"南兴街 49 号 · 1926 年",
+  parts:[
+   {x:50,y:35,name:"「靜園」匾额",sub:"中文题额 · 西式门楼",
+    t:"西式门楼的拱券之上，压着一块中文题额——主人身份的中文表达。西方的壳，中国的名，正是「中西合璧」四个字的模样。",
+    meta:"观察要点：题额字体与灰塑边框的本地工艺。"},
+   {x:50,y:58,name:"拱形通廊",sub:"先抑后扬的空间序曲",
+    t:"门楼内是一条拱券通廊，直通内院：从喧闹街道进入窄暗门洞，再豁然见到亮堂天井——私宅用「序曲」保护家庭的私密。",
+    meta:"对比记忆：商会的入口是「迎」，静园的入口是「引」。"},
+   {x:30,y:78,name:"铁艺大门",sub:"西式纹样 · 本地铁作",
+    t:"锻铁卷草纹样来自西方图集，锻打它的却是本地铁匠——连一扇门都是跨文化合作的产物。",
+    meta:"观察要点：铁艺花纹与上方拱券的对应关系。"},
+   {x:72,y:78,name:"门房与侧廊",sub:"窄面的服务空间",
+    t:"临街面太窄，静园把门房、储藏等服务空间垂直于街道布置，正面只留「体面」——窄面宽倒逼出高效率的平面。",
+    meta:"对比记忆：商会临街面全部让给了公共门面。"},
+   {x:88,y:45,name:"界墙与老墙肌理",sub:"与街道共享的边界",
+    t:"临街窄面直接借用城市界墙，墙皮上留着的时代痕迹（电瓷瓶、老线路）是街道历史的另一层档案。",
+    meta:"观察要点：老墙材料分层——不同年代的修补清晰可读。"}]}
+};
+let curB='guild';
+function renderHot(bid){
+  curB=bid;const b=BUILDINGS[bid];
+  document.getElementById('hsStage').innerHTML=
+   `<img src="${b.img}" alt="${b.title}">`+
+   b.parts.map((p,i)=>`<button class="hotspot${i===0?' act':''}" data-i="${i}" style="left:${p.x}%;top:${p.y}%"><span class="hl">${p.name}</span></button>`).join('');
+  document.querySelectorAll('.ana-tabs button').forEach(x=>x.classList.toggle('act',x.dataset.b===bid));
+  showPart(0);
+}
+function showPart(i){
+  const b=BUILDINGS[curB],p=b.parts[i];
+  document.querySelectorAll('.hotspot').forEach(h=>h.classList.toggle('act',+h.dataset.i===i));
+  document.getElementById('hsInfo').innerHTML=
+   `<h4>${p.name}</h4><div class="hs-sub">${p.sub} · ${curB==='guild'?'商会会址':'静园'}</div>
+    <p>${p.t}</p><div class="hs-meta">${p.meta}</div>`;
+  const info=document.getElementById('hsInfo');info.classList.remove('fade');void info.offsetWidth;info.classList.add('fade');
+}
+document.getElementById('hsStage').addEventListener('click',e=>{
+  const h=e.target.closest('.hotspot');if(h)showPart(+h.dataset.i);
+});
+document.querySelectorAll('.ana-tabs button').forEach(b=>b.onclick=()=>renderHot(b.dataset.b));
+renderHot('guild');
+
+/* ================= 陆：三种气候场景模拟 ================= */
+const SCENES={
+ heat:{title:"场景一 · 高温气流",desc:"湛江夏季高温日多、日照强。太阳把屋面与街道晒透，两栋楼用完全不同的路径把热量「请」出去：商会靠横向的大阴影，静园靠竖向的拔风井。",
+  guild:"商会：宽大外廊制造整片阴影带，人群在廊下通行办公，热空气沿拱廊顶部排出。",
+  home:"静园：天井如烟囱——热空气上升、冷空气从檐廊补入；百叶窗开合即调温。",
+  svg:`<svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg">
+   <circle cx="80" cy="60" r="26" fill="#E8B54A"><animate attributeName="opacity" values="1;.7;1" dur="2.4s" repeatCount="indefinite"/></circle>
+   <g stroke="#E8B54A" stroke-width="2">${[0,45,90,135,180,225,270,315].map(a=>{const r1=32,r2=44,rad=a*Math.PI/180;return `<line x1="${80+r1*Math.cos(rad)}" y1="${60+r1*Math.sin(rad)}" x2="${80+r2*Math.cos(rad)}" y2="${60+r2*Math.sin(rad)}" class="heatwave"/>`}).join('')}</g>
+   <text x="80" y="112" text-anchor="middle" font-size="12" fill="#A5814B">烈日</text>
+   <rect x="180" y="90" width="140" height="140" fill="none" stroke="#23201A" stroke-width="2"/>
+   <text x="250" y="82" text-anchor="middle" font-size="11" fill="#2F5D50">商会 · 外廊横向通风</text>
+   ${[0,1].map(i=>`<path d="M${196+i*64} 230 v-56 a22 22 0 0 1 44 0 v56" fill="none" stroke="#2F5D50" stroke-width="2"/>`).join('')}
+   <path class="flow" d="M250 226 v-88 M250 138 h-64 M250 138 h64" stroke="#2F5D50" stroke-width="2"/>
+   <text x="250" y="256" text-anchor="middle" font-size="10" fill="#5B5548">廊下阴影带 · 人流凉棚</text>
+   <rect x="360" y="70" width="60" height="160" fill="none" stroke="#23201A" stroke-width="2"/>
+   <rect x="430" y="100" width="60" height="130" fill="none" stroke="#23201A" stroke-width="2"/>
+   <text x="425" y="62" text-anchor="middle" font-size="11" fill="#A0402C">静园 · 天井竖向拔风</text>
+   <path class="flow" d="M425 226 v-120" stroke="#A0402C" stroke-width="2.4"/>
+   <path d="M417 106 l8 -12 l8 12" fill="none" stroke="#A0402C" stroke-width="2.4"/>
+   <text x="425" y="252" text-anchor="middle" font-size="10" fill="#5B5548">热空气上升 · 冷风补入</text>
+   <line x1="20" y1="230" x2="500" y2="230" stroke="#23201A" stroke-width="3"/></svg>`},
+ rain:{title:"场景二 · 暴雨",desc:"雨季多雨、夏秋多台风，一场雨同时考验屋顶、排水与出行。商会的拱廊把街道「搬进屋檐」，静园的天井四周组织排水——雨再大，生活与商务都不停摆。",
+  guild:"商会：连续拱廊 = 避雨的街道，雨天照常集会；坡顶 + 女儿墙排水口快速泄水。",
+  home:"静园：坡瓦顶 + 天井「四水归堂」，雨水顺内沟排走；深出檐护住檐廊。",
+  svg:`<svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg">
+   <g class="rain" stroke="#7A9CC6" stroke-width="2" stroke-linecap="round">${Array.from({length:14},(_,i)=>`<line x1="${30+i*34}" y1="0" x2="${24+i*34}" y2="34"/>`).join('')}</g>
+   <rect x="180" y="86" width="140" height="142" fill="none" stroke="#23201A" stroke-width="2"/>
+   <path d="M172 86 L250 58 L328 86" fill="none" stroke="#23201A" stroke-width="2.4"/>
+   ${[0,1].map(i=>`<path d="M${196+i*64} 228 v-54 a22 22 0 0 1 44 0 v54" fill="none" stroke="#2F5D50" stroke-width="2"/>`).join('')}
+   <path class="flow" d="M250 118 v108" stroke="#7A9CC6" stroke-width="2"/>
+   <text x="250" y="50" text-anchor="middle" font-size="11" fill="#2F5D50">商会 · 廊下避雨通行</text>
+   <text x="250" y="256" text-anchor="middle" font-size="10" fill="#5B5548">雨天商务不中断</text>
+   <rect x="360" y="104" width="120" height="126" fill="none" stroke="#23201A" stroke-width="2"/>
+   <path d="M352 104 L420 72 L488 104" fill="none" stroke="#23201A" stroke-width="2.4"/>
+   <text x="420" y="64" text-anchor="middle" font-size="11" fill="#A0402C">静园 · 坡顶四水归堂</text>
+   <path class="flow" d="M380 104 v110 M460 104 v110" stroke="#7A9CC6" stroke-width="2"/>
+   <text x="420" y="256" text-anchor="middle" font-size="10" fill="#5B5548">雨水顺内沟排走 · 檐廊可避雨</text>
+   <line x1="20" y1="230" x2="500" y2="230" stroke="#23201A" stroke-width="3"/>
+   <path d="M20 244 q20 8 40 0 t40 0 t40 0 t40 0" fill="none" stroke="#7A9CC6" stroke-width="2"/></svg>`},
+ fog:{title:"场景三 · 盐雾",desc:"湛江沿海，盐雾随海风无孔不入，普通灰浆几年就被腐蚀粉化。两栋楼给出的答案在材料层面：大量使用进口红毛泥（水泥）抹灰与水刷石构件——更致密、更耐盐，这是「防盐雾的本土化改造」。",
+  guild:"商会：红毛泥抹灰 + 横向线脚，密实外皮抵御盐雾；受损部位便于局部修补。",
+  home:"静园：水刷石柱面细腻致密，用在近人处；木百叶可拆换，坏一件换一件。",
+  svg:`<svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg">
+   <g fill="#9FB8C8" opacity=".55">
+    <circle class="fogball" cx="60" cy="120" r="26"/><circle class="fogball" cx="90" cy="180" r="34"/><circle class="fogball" cx="50" cy="60" r="20"/>
+    <circle class="fogball" cx="120" cy="90" r="18"/><circle class="fogball" cx="70" cy="220" r="24"/>
+   </g>
+   <text x="60" y="262" text-anchor="middle" font-size="12" fill="#5B7A8C">← 海风挟盐雾</text>
+   <rect x="180" y="86" width="140" height="142" fill="none" stroke="#23201A" stroke-width="2"/>
+   ${[0,1].map(i=>`<path d="M${196+i*64} 228 v-54 a22 22 0 0 1 44 0 v54" fill="none" stroke="#2F5D50" stroke-width="2"/>`).join('')}
+   <rect x="180" y="86" width="140" height="20" fill="#E7DFCB"/>
+   <text x="250" y="78" text-anchor="middle" font-size="11" fill="#A5814B">商会 · 红毛泥抹灰外皮</text>
+   <text x="250" y="120" text-anchor="middle" font-size="10" fill="#5B5548">密实 · 耐盐 · 易修补</text>
+   <rect x="360" y="70" width="60" height="160" fill="none" stroke="#23201A" stroke-width="2"/>
+   <rect x="430" y="100" width="60" height="130" fill="none" stroke="#23201A" stroke-width="2"/>
+   <rect x="360" y="70" width="60" height="16" fill="#E7DFCB"/>
+   <text x="425" y="62" text-anchor="middle" font-size="11" fill="#A0402C">静园 · 水刷石 + 可拆换木百叶</text>
+   <text x="425" y="250" text-anchor="middle" font-size="10" fill="#5B5548">近人部位用致密材料</text>
+   <line x1="20" y1="230" x2="500" y2="230" stroke="#23201A" stroke-width="3"/>
+   <path class="flow" d="M30 140 h90 M30 180 h90" stroke="#9FB8C8" stroke-width="2"/></svg>`}
+};
+function renderClim(k){const s=SCENES[k];
+  document.getElementById('climSvg').innerHTML=s.svg;
+  document.getElementById('climTitle').textContent=s.title;
+  document.getElementById('climDesc').textContent=s.desc;
+  document.getElementById('climGuild').textContent='馆 · '+s.guild;
+  document.getElementById('climHome').textContent='宅 · '+s.home;
+  document.querySelectorAll('.clim-tabs button').forEach(b=>b.classList.toggle('act',b.dataset.c===k));
+  const w=document.querySelector('.clim-wrap');w.classList.remove('fade');void w.offsetWidth;w.classList.add('fade');
+}
+document.querySelectorAll('.clim-tabs button').forEach(b=>b.onclick=()=>renderClim(b.dataset.c));
+renderClim('heat');
+
+/* ================= 柒：营造实验室 ================= */
+const lab={
+ "public-street":{
+  mode:"馆 · 骑楼外廊式",title:"连续拱廊面向街道",
+  desc:"拱廊一层接一层向街道打开：廊下是行人与商务的缓冲区，楼上议事。立面成为商会的「名片」，宝瓶女儿墙压住轮廓，远观气派。",
+  why:"公共 + 临街 → 街道即使用场景。建筑把「面子」给城市，把仪式感给集体。≈ 广州湾商会会址",
+  svg:`<svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg">
+   <rect x="30" y="60" width="460" height="190" fill="none" stroke="#23201A" stroke-width="2"/>
+   <path d="M30 60 L260 28 L490 60" fill="none" stroke="#23201A" stroke-width="2"/>
+   <text x="260" y="24" text-anchor="middle" font-size="12" fill="#A5814B">山花 · 钟楼（公共纪念性）</text>
+   ${[0,1,2,3].map(i=>`<g><path d="M${55+i*112} 250 v-70 a24 24 0 0 1 48 0 v70" fill="none" stroke="#2F5D50" stroke-width="2"/><line x1="${55+i*112}" y1="180" x2="${103+i*112}" y2="180" stroke="#2F5D50" stroke-width="2"/></g>`).join('')}
+   ${[0,1,2,3,4,5,6,7,8,9,10,11].map(i=>`<rect x="${52+i*37}" y="80" width="10" height="22" rx="5" fill="none" stroke="#A0402C" stroke-width="1.6"/>`).join('')}
+   <text x="260" y="98" text-anchor="middle" font-size="10" fill="#A0402C">宝瓶女儿墙 · 公共立面装饰</text>
+   <line x1="30" y1="250" x2="490" y2="250" stroke="#23201A" stroke-width="3"/>
+   <circle cx="120" cy="272" r="5" fill="#5B5548"/><circle cx="140" cy="272" r="5" fill="#5B5548"/><circle cx="360" cy="272" r="5" fill="#5B5548"/>
+   <text x="260" y="292" text-anchor="middle" font-size="11" fill="#5B5548">街道 = 人流集散 · 廊下遮阳通行</text>
+   <path class="flow" d="M20 150 h-8 M500 150 h8" stroke="#2F5D50" stroke-width="2"/></svg>`},
+ "public-deep":{
+  mode:"馆 · 会馆围合式",title:"回廊围合，议事向心",
+  desc:"若有进深，公共建筑会向内围合出庭院：外立面依然规整，庭院成为议事的「大厅顶盖」，人流由门厅收束再散入回廊。",
+  why:"公共 + 进深 → 对外要门面，对内要聚人。历史上赤坎的会馆多用此策略。≈ 潮州会馆类型",
+  svg:`<svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg">
+   <path d="M60 250 V90 H460 V250" fill="none" stroke="#23201A" stroke-width="2"/>
+   <path d="M60 250 H190 M330 250 H460" stroke="#23201A" stroke-width="2"/>
+   <line x1="190" y1="250" x2="330" y2="250" stroke="#A0402C" stroke-width="2" stroke-dasharray="5 5"/>
+   <text x="260" y="270" text-anchor="middle" font-size="11" fill="#A0402C">入口门厅 · 人流收束</text>
+   <path d="M110 250 V130 M410 250 V130 M110 130 H410" fill="none" stroke="#2F5D50" stroke-width="2"/>
+   <text x="260" y="185" text-anchor="middle" font-size="12" fill="#5B5548">内庭 · 露天集会</text>
+   <circle cx="235" cy="205" r="4" fill="#5B5548"/><circle cx="260" cy="212" r="4" fill="#5B5548"/><circle cx="285" cy="203" r="4" fill="#5B5548"/>
+   ${[0,1,2,3,4,5].map(i=>`<rect x="${78+i*62}" y="70" width="9" height="18" rx="4" fill="none" stroke="#A0402C" stroke-width="1.5"/>`).join('')}
+   <text x="260" y="60" text-anchor="middle" font-size="10" fill="#A0402C">外立面仍规整对称 · 门面向城市</text>
+   <path class="flow" d="M260 240 v-40" stroke="#2F5D50" stroke-width="2"/></svg>`},
+ "home-street":{
+  mode:"宅 · 骑楼商住式",title:"下店上宅，窄面深进",
+  desc:"临街窄面没有退路，只能向上与向后要空间：底层开店，楼上住人，小阳台与百叶窗成为家与街道之间的缓冲。",
+  why:"私人 + 临街 → 把生活叠在生意上。赤坎老街大量民居即如此。≈ 骑楼商住类型",
+  svg:`<svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg">
+   <rect x="150" y="60" width="220" height="190" fill="none" stroke="#23201A" stroke-width="2"/>
+   <line x1="150" y1="175" x2="370" y2="175" stroke="#23201A" stroke-width="2"/>
+   <rect x="185" y="195" width="60" height="55" fill="none" stroke="#2F5D50" stroke-width="2"/>
+   <rect x="275" y="195" width="60" height="55" fill="none" stroke="#2F5D50" stroke-width="2"/>
+   <text x="260" y="168" text-anchor="middle" font-size="11" fill="#5B5548">楼上 · 家族居住</text>
+   <text x="260" y="262" text-anchor="middle" font-size="11" fill="#A0402C">底层 · 店铺营业</text>
+   <rect x="150" y="86" width="220" height="3" fill="#A5814B"/>
+   <rect x="163" y="96" width="42" height="26" rx="3" fill="none" stroke="#A0402C" stroke-width="1.6"/>
+   <rect x="315" y="96" width="42" height="26" rx="3" fill="none" stroke="#A0402C" stroke-width="1.6"/>
+   <text x="260" y="115" text-anchor="middle" font-size="10" fill="#A0402C">小阳台 · 近人尺度</text>
+   <path d="M150 60 L260 42 L370 60" fill="none" stroke="#23201A" stroke-width="2"/>
+   <line x1="30" y1="250" x2="490" y2="250" stroke="#23201A" stroke-width="3"/>
+   <path class="flow" d="M415 210 h30" stroke="#2F5D50" stroke-width="2"/>
+   <text x="445" y="214" font-size="10" fill="#2F5D50">百叶调风</text></svg>`},
+ "home-deep":{
+  mode:"宅 · 庭院天井式",title:"内院拔风，向内生长",
+  desc:"有进深便把院子抱进怀里：门楼窄面低调，穿过巷道进入内院，天井如烟囱般拔风，百叶窗逐间调节——家的舒适在深处。",
+  why:"私人 + 进深 → 空间向内组织，私密与舒适优先。≈ 静园（临街面窄、进深 42 米）",
+  svg:`<svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg">
+   <rect x="210" y="70" width="100" height="180" fill="none" stroke="#23201A" stroke-width="2"/>
+   <text x="260" y="64" text-anchor="middle" font-size="10" fill="#A5814B">窄门楼 · 低调内向</text>
+   <rect x="60" y="110" width="150" height="140" fill="none" stroke="#23201A" stroke-width="2"/>
+   <rect x="310" y="110" width="150" height="140" fill="none" stroke="#23201A" stroke-width="2"/>
+   <line x1="210" y1="250" x2="310" y2="250" stroke="#A0402C" stroke-width="2" stroke-dasharray="5 5"/>
+   <text x="260" y="268" text-anchor="middle" font-size="11" fill="#A0402C">内院天井 · 拔风口</text>
+   ${[0,1].map(i=>`<g><rect x="${80+i*310}" y="140" width="26" height="44" fill="none" stroke="#2F5D50" stroke-width="2"/>${[0,1,2].map(j=>`<line x1="${82+i*310}" y1="${148+j*12}" x2="${104+i*310}" y2="${148+j*12}" stroke="#2F5D50" stroke-width="1.4"/>`).join('')}<text x="${93+i*310}" y="205" text-anchor="middle" font-size="9" fill="#5B5548">百叶窗</text></g>`).join('')}
+   <path class="flow" d="M260 244 v-160" stroke="#2F5D50" stroke-width="2.4"/>
+   <path d="M252 92 l8 -12 l8 12" fill="none" stroke="#2F5D50" stroke-width="2.4"/>
+   <text x="286" y="96" font-size="10" fill="#2F5D50">热空气上升 · 拔风</text>
+   <path class="flow" d="M60 120 h-24 M60 230 h-24" stroke="#A0402C" stroke-width="1.8"/>
+   <text x="44" y="106" font-size="9" fill="#A0402C">冷风补入</text>
+   <rect x="150" y="120" width="110" height="3" fill="#A5814B"/></svg>`}
+};
+function renderLab(k){
+  const d=lab[k];
+  document.getElementById('labSvg').innerHTML=d.svg;
+  document.getElementById('labMode').textContent=d.mode;
+  document.getElementById('labTitle').textContent=d.title;
+  document.getElementById('labDesc').textContent=d.desc;
+  document.getElementById('labWhy').textContent=d.why;
+  const b=document.querySelector('.lab-body');b.classList.remove('fade');void b.offsetWidth;b.classList.add('fade');
+}
+let labF='public',labS='street';
+document.querySelectorAll('#swFunc button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#swFunc button').forEach(x=>x.classList.remove('act'));b.classList.add('act');labF=b.dataset.v;renderLab(labF+'-'+labS)});
+document.querySelectorAll('#swSite button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#swSite button').forEach(x=>x.classList.remove('act'));b.classList.add('act');labS=b.dataset.v;renderLab(labF+'-'+labS)});
+renderLab('public-street');
+
+/* ================= 玖：知识闯关 ================= */
+const QUIZ=[
+ {q:"两栋楼由同一位商人圈层主持建造、年代相邻、材料相同——它们唯一的「控制变量」是？",
+  opts:["建筑高度不同","使用功能：公共集体 vs 家族私人","建筑材料不同","建筑风格不同"],a:1,
+  exp:"控制变量法的精髓：时代、建造者圈层、材料供应链全部一致，唯一变量是「公共 vs 私人」，所以空间形态的差异可以归因于功能。"},
+ {q:"本地人把经香港转运进口的水泥叫作？",
+  opts:["南洋灰","洋灰砖","红毛泥","鹅蛋灰"],a:2,
+  exp:"清末民国广东沿海习惯称西洋人为「红毛」，进口水泥随之被叫作「红毛泥」——材料名背后是一条跨海贸易航线。"},
+ {q:"面对湿热气候，商会会址的通风策略是？",
+  opts:["天井拔风","宽大外廊横向通风","地下风道","机械风扇"],a:1,
+  exp:"公共建筑靠「面的通风」：宽大外廊让大量人群在阴影中通行，气流横穿拱廊带走热量。"},
+ {q:"站在静园内院抬头看到的那片天，最重要的作用是？",
+  opts:["观星赏月","防盗瞭望","拔风与采光","晾晒祭祀"],a:2,
+  exp:"天井是竖向通风井：热空气上升形成负压，冷空气从檐廊补入——同时给内院各房间采光。"},
+ {q:"同一个宝瓶栏杆，在商会与静园中的差别是？",
+  opts:["材质完全不同","静园根本没有栏杆","商会在女儿墙远观可读，静园在小阳台近人尺度","商会的更小更精致"],a:2,
+  exp:"同一构件、两种身份：公共建筑里是「立面的秩序」，私宅里是「生活的边框」。细部尺度暴露了建筑真正的观众。"},
+ {q:"「建筑是功能的诚实表达」这句话的意思是？",
+  opts:["装饰越贵重建筑越高级","形式应诚实回应使用需求与气候","照抄西方古典才够体面","风格先定，功能后配"],a:1,
+  exp:"骑楼、拱廊、百叶窗不是装饰堆砌，而是对湿热气候与使用场景的理性回应——这正是两栋楼「长得不一样」的根本原因。"}
+];
+let answered=new Array(QUIZ.length).fill(null);
+function renderQuiz(){
+  document.getElementById('quizList').innerHTML=QUIZ.map((q,qi)=>`
+   <div class="q-card" id="qc${qi}">
+    <div class="q-no">第 ${qi+1} 关 / 共 ${QUIZ.length} 关</div>
+    <h4>${q.q}</h4>
+    <div class="opts">${q.opts.map((o,oi)=>`<button data-q="${qi}" data-o="${oi}">${'ABCD'[oi]}. ${o}</button>`).join('')}</div>
+    <div class="q-exp" id="qe${qi}">💡 ${q.exp}</div>
+   </div>`).join('');
+}
+renderQuiz();
+function updateScore(){
+  const s=answered.filter((v,i)=>v===QUIZ[i].a).length;
+  document.getElementById('quizScore').textContent=s;
+  if(answered.every(v=>v!==null))showResult(s);
+}
+function showResult(s){
+  const r=document.getElementById('quizResult');r.classList.add('show');
+  const grades=[[6,"🏆 金牌导览员","全对！你已经完全读懂了「一宅一馆」的控制变量实验，可以带队去赤坎实地讲解了。"],
+                [4,"🥈 银牌研学员","很棒！再回看「部位对照」和「营造实验室」，补上最后一两块拼图。"],
+                [2,"🥉 铜牌探路人","不错的开始！建议从「壹·缘起」重新走一遍，重点理解「功能是总开关」。"],
+                [0,"📚 初访者","别灰心，这个网站本身就是为第一次来的人设计的——从壹到捌慢慢逛。"]];
+  const g=grades.find(x=>s>=x[0]);
+  document.getElementById('quizGrade').textContent=`答对 ${s} / 6 · ${g[1]}`;
+  document.getElementById('quizMsg').textContent=g[2];
+  document.getElementById('quizResult').scrollIntoView({behavior:'smooth',block:'center'});
+}
+document.getElementById('quizList').addEventListener('click',e=>{
+  const btn=e.target.closest('.opts button');if(!btn)return;
+  const qi=+btn.dataset.q,oi=+btn.dataset.o;
+  if(answered[qi]!==null)return;
+  answered[qi]=oi;
+  const card=document.getElementById('qc'+qi);
+  card.querySelectorAll('.opts button').forEach(b=>{
+    b.disabled=true;
+    if(+b.dataset.o===QUIZ[qi].a)b.classList.add('right');
+    else if(+b.dataset.o===oi)b.classList.add('wrong');
+  });
+  document.getElementById('qe'+qi).classList.add('show');
+  updateScore();
+});
+document.getElementById('quizReset').onclick=()=>{
+  answered=new Array(QUIZ.length).fill(null);
+  document.getElementById('quizScore').textContent='0';
+  document.getElementById('quizResult').classList.remove('show');
+  renderQuiz();
+};
+/* 通关证书（Canvas 绘制，双击保存） */
+function drawCert(){
+  const name=document.getElementById('certName').value.trim()||'研学学员';
+  const s=answered.filter((v,i)=>v===QUIZ[i].a).length;
+  const c=document.getElementById('certCanvas'),ctx=c.getContext('2d');
+  const W=c.width,H=c.height;
+  ctx.clearRect(0,0,W,H);
+  ctx.fillStyle='#F7F3EA';ctx.fillRect(0,0,W,H);
+  ctx.strokeStyle='#A5814B';ctx.lineWidth=6;ctx.strokeRect(24,24,W-48,H-48);
+  ctx.lineWidth=1.5;ctx.strokeRect(38,38,W-76,H-76);
+  ctx.fillStyle='#23201A';ctx.textAlign='center';
+  ctx.font='700 44px "Noto Serif SC","SimSun",serif';
+  ctx.fillText('一宅一馆 · 筑见中西',W/2,110);
+  ctx.font='24px "Noto Serif SC","SimSun",serif';ctx.fillStyle='#A5814B';
+  ctx.fillText('★ 中西合璧建筑科普 · 知识闯关通关证书 ★',W/2,150);
+  ctx.fillStyle='#23201A';ctx.font='20px "PingFang SC","Microsoft YaHei",sans-serif';
+  ctx.fillText('兹证明',W/2,215);
+  ctx.font='700 40px "Noto Serif SC","SimSun",serif';ctx.fillStyle='#A0402C';
+  ctx.fillText(name,W/2,270);
+  ctx.strokeStyle='#A5814B';ctx.lineWidth=1;
+  const nw=ctx.measureText(name).width;ctx.beginPath();ctx.moveTo(W/2-nw/2-10,284);ctx.lineTo(W/2+nw/2+10,284);ctx.stroke();
+  ctx.fillStyle='#23201A';ctx.font='20px "PingFang SC","Microsoft YaHei",sans-serif';
+  ctx.fillText('在「静园与广州湾商会会址建筑差异」知识闯关中',W/2,325);
+  ctx.fillText(`答对 ${s} / 6 题，达到「${s>=6?'金牌导览员':s>=4?'银牌研学员':s>=2?'铜牌探路人':'初访者'}」等级`,W/2,360);
+  ctx.font='16px "PingFang SC","Microsoft YaHei",sans-serif';ctx.fillStyle='#5B5548';
+  const d=new Date();
+  ctx.fillText(`颁发日期：${d.getFullYear()} 年 ${d.getMonth()+1} 月 ${d.getDate()} 日`,W/2,430);
+  ctx.fillText('第九组 · 寻迹赤坎研学项目',W/2,460);
+  ctx.strokeStyle='#A0402C';ctx.lineWidth=2.5;
+  ctx.beginPath();ctx.arc(W/2,520,42,0,Math.PI*2);ctx.stroke();
+  ctx.font='700 15px "Noto Serif SC","SimSun",serif';ctx.fillStyle='#A0402C';
+  ctx.fillText('筑见中西',W/2,515);ctx.fillText('第九组',W/2,536);
+}
+document.getElementById('certGen').onclick=()=>{drawCert();document.getElementById('certCanvas').scrollIntoView({behavior:'smooth',block:'center'})};
+document.getElementById('certCanvas').addEventListener('dblclick',function(){
+  const a=document.createElement('a');a.download='通关证书.png';a.href=this.toDataURL('image/png');a.click();
+});
+
+/* ================= 拾：Canvas 虚拟速写台 ================= */
+const sc=document.getElementById('sketchCanvas'),sctx=sc.getContext('2d');
+let brush=3,color='#23201A',drawing=false,last=null;
+function fitSketch(){
+  const r=sc.getBoundingClientRect(),dpr=window.devicePixelRatio||1;
+  sc.width=r.width*dpr;sc.height=520*dpr;
+  sctx.setTransform(dpr,0,0,dpr,0,0);
+  sctx.lineCap='round';sctx.lineJoin='round';
+  sctx.fillStyle='#FBF8F0';sctx.fillRect(0,0,r.width,520);
+}
+window.addEventListener('resize',fitSketch);
+fitSketch();
+function pos(e){const r=sc.getBoundingClientRect();const t=e.touches?e.touches[0]:e;return{x:t.clientX-r.left,y:t.clientY-r.top}}
+function start(e){drawing=true;last=pos(e);e.preventDefault()}
+function move(e){
+  if(!drawing)return;
+  const p=pos(e);
+  sctx.strokeStyle=color;sctx.lineWidth=color==='#FBF8F0'?brush*3:brush;
+  sctx.beginPath();sctx.moveTo(last.x,last.y);sctx.lineTo(p.x,p.y);sctx.stroke();
+  last=p;e.preventDefault();
+}
+function end(){drawing=false}
+sc.addEventListener('mousedown',start);sc.addEventListener('mousemove',move);
+window.addEventListener('mouseup',end);
+sc.addEventListener('touchstart',start,{passive:false});
+sc.addEventListener('touchmove',move,{passive:false});
+sc.addEventListener('touchend',end);
+document.getElementById('swatches').addEventListener('click',e=>{
+  const s=e.target.closest('.swatch');if(!s)return;
+  document.querySelectorAll('.swatch').forEach(x=>x.classList.remove('act'));
+  s.classList.add('act');color=s.dataset.c;
+});
+document.getElementById('brushSize').oninput=e=>{brush=+e.target.value;document.getElementById('brushVal').textContent=brush};
+document.getElementById('sketchClear').onclick=()=>{
+  const r=sc.getBoundingClientRect();
+  sctx.fillStyle='#FBF8F0';sctx.fillRect(0,0,r.width,520);
+};
+document.getElementById('sketchSave').onclick=()=>{
+  const a=document.createElement('a');
+  a.download='赤坎建筑速写.png';a.href=sc.toDataURL('image/png');a.click();
+};
+
+/* ================= 任务单 ================= */
+const tasks=document.querySelectorAll('.task input');
+const toast=document.getElementById('toast');
+function updSheet(){
+  const total=tasks.length,done=[...tasks].filter(t=>t.checked).length;
+  const pct=Math.round(done/total*100);
+  document.getElementById('prog').style.width=pct+'%';
+  document.getElementById('progTxt').textContent=pct+'%';
+  tasks.forEach(t=>t.closest('.task').classList.toggle('done',t.checked));
+  if(done===total){toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2600)}
+}
+tasks.forEach(t=>t.addEventListener('change',()=>{updSheet();try{localStorage.setItem('ck-task',JSON.stringify([...tasks].map(x=>x.checked)))}catch(e){}}));
+document.getElementById('resetSheet').onclick=()=>{tasks.forEach(t=>t.checked=false);document.getElementById('openAns').value='';updSheet();try{localStorage.removeItem('ck-task');localStorage.removeItem('ck-ans')}catch(e){}};
+try{const s=localStorage.getItem('ck-task');if(s){JSON.parse(s).forEach((v,i)=>{if(tasks[i])tasks[i].checked=v})}document.getElementById('openAns').value=localStorage.getItem('ck-ans')||''}catch(e){}
+document.getElementById('openAns').addEventListener('input',e=>{try{localStorage.setItem('ck-ans',e.target.value)}catch(e){}});
+updSheet();
+
+/* ================= 滚动显现 & 导航高亮 ================= */
+if('IntersectionObserver' in window){
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+}else{
+  document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+}
+/* 兜底：加载完成后 3 秒仍未淡入的元素直接显示，避免整页空白 */
+setTimeout(()=>{document.querySelectorAll('.reveal:not(.in)').forEach(el=>el.classList.add('in'))},3000);
+const secs=[...document.querySelectorAll('section[id]')];
+window.addEventListener('scroll',()=>{
+  const y=scrollY+120;let cur=secs[0]?secs[0].id:undefined;
+  secs.forEach(s=>{if(s.offsetTop<=y)cur=s.id});
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.toggle('act',a.getAttribute('href')==='#'+cur));
+},{passive:true});
+</script>
+</body>
+</html>
